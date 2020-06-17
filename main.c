@@ -6,65 +6,73 @@
 
 int main()
 {
-    BufferQueue testQ;      // Generic Queue with size Limit
+    // Generic Queue with size Limit
+    BufferQueue intQueue;       // Integer Queue
+    BufferQueue structQueue;    // Structure Queue
+    BufferQueue stringQueue;    // String Queue
+
     int bufferSizeLimit;    // size Limit - can be set manually or get from user.
 
     bufferSizeLimit = userSetBufferLimit();         // Asks user to set buffer size limit  - (Max number of elements Queue can hold)
 
-    init_BufferQueue(&testQ, bufferSizeLimit);      // initialize bufferQueue
+    init_BufferQueue(&intQueue, bufferSizeLimit);         // initialize bufferQueue
+    init_BufferQueue(&structQueue, bufferSizeLimit);      // initialize bufferQueue
+    init_BufferQueue(&stringQueue, bufferSizeLimit);      // initialize bufferQueue
 
-
-    if(testQ.initialized)
+    if(intQueue.initialized)
     {
-        Element enQ, deQ;
+        int i;
+
+        // TestStruct variable as Element - testing
+        Element enqTest, deqTest;
+        TestStruct* testVariable;
+
+            testVariable->xPos = 5;
+            testVariable->yPos = 5;
+            testVariable->detail = "This is test Variable data.";
+
+            enqTest.Data = (void*) testVariable;
+            enqueue(&structQueue, enqTest);
+            dequeue(&structQueue, &deqTest);
+        printMessage(&deqTest);
 
 
-/*        Boom* xxxx;
-        xxxx->x = 2;
-        xxxx->y = 5;
-        xxxx->det = "Ello";
+        // String as Element - testing
+        Element enqStr, deqStr;
+            for (i = 0; i < 10; i++)
+            {
+                char* str = "String";
+                enqStr.index = i;
+                enqStr.Data = str;
+                enqueue(&stringQueue, enqStr);
+            }
+        printAll(&stringQueue);
 
-        enQ.Data = (void*)xxxx;
-        enqueue(&testQ, enQ);
-*/
-        int i = 0;
 
-        for (i = 0; i < 10; i++)
-        {
-            char* str = "String";
+        // Int as Element - testing
+        Element enqInt, deqInt;
+            for (i = 0; i < 10; i++)
+            {
+                enqInt.index = i;
+                enqInt.Data = (int)i+1;
+                enqueue(&intQueue, enqInt);
+            }
+        printInts(&intQueue);
 
-            enQ.index = i;
-            enQ.Data = str;
 
-            enqueue(&testQ, enQ);
-        }
+        /**********************************************************************************
+         *                                  deq                                           *
+         **********************************************************************************/
 
-        for(i=0; i < 10; i++)
-        {
-            char* str = "More Strings";
+       printf("\n %s Emptying Q by Dequeue...  \n", SPACER );
 
-            enQ.index = i;
-            enQ.Data = str;
+        int siz = intQueue.size;
 
-            enqueue(&testQ, enQ);
-        }
-
-        printAll(&testQ);
-
-        /* deq */
-/*
-        dequeue(&testQ, &deQ);
-        printf("DEqued Det : %s \n", deQ.Data);
-
-        int siz = testQ.size;
         for(i = 0; i < siz; i++)
         {
-            dequeue(&testQ, &deQ);
+            dequeue(&intQueue, &deqInt);
         }
-
-        printAll(&testQ);
-*/
-
+        printAll(&intQueue);
         printf("\n%s %*c End of the Program \n%s", SPACER, 20, ' ', SPACER);
     }
 
