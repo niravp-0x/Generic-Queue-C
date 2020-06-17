@@ -123,7 +123,7 @@ bool enqueue(BufferQueue* inQ, Element inElement)
         inQ->size++;                                // Queue size increment by 1
 
         //printLoadSuccess(inQ, inElement);           // Prints success message.
-       // printMessage("Enqueue Success", &inElement);
+        printMessage("Enqueue Success", &inElement);
        /*
         int xx = (int) (((Boom*)inElement.Data)->x);
         int yy = (int) (((Boom*)inElement.Data)->y);

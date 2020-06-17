@@ -39,22 +39,11 @@ int main()
             enqueue(&testQ, enQ);
         }
 
-        for(i=0; i < 10; i++)
-        {
-            char* str = "More Strings";
-
-            enQ.index = i;
-            enQ.Data = str;
-
-            enqueue(&testQ, enQ);
-        }
-
         printAll(&testQ);
 
         /* deq */
-/*
-        dequeue(&testQ, &deQ);
-        printf("DEqued Det : %s \n", deQ.Data);
+
+        printf("\n %s Emptying Q by Dequeue..  \n", SPACER );
 
         int siz = testQ.size;
         for(i = 0; i < siz; i++)
@@ -63,7 +52,7 @@ int main()
         }
 
         printAll(&testQ);
-*/
+
 
         printf("\n%s %*c End of the Program \n%s", SPACER, 20, ' ', SPACER);
     }
