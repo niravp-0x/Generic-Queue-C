@@ -16,10 +16,13 @@
 #include<stdbool.h>
 #define SPACER "----------------------------------------------------------------\n"
 
+#define MIN_BUFFER 8            // Minimum buffer size limit
+#define MAX_BUFFER 264          // Maximum buffer size limit
+
 typedef struct
 {
     int index;
-    void* Data
+    void* Data;
 
 }Element;
 
@@ -27,20 +30,23 @@ typedef  struct
 {
     int size;
     int sizeLimit;
-    int frontIdx;
     int rearIdx;
     Element* Elements;
+    bool initialized;
 
 }BufferQueue;
 
+void freeMe(BufferQueue* inQ);
 
-void init_BufferQueue(BufferQueue* inQ, int bufferSize);                     // Create and Initialize Queue
+int userSetBufferLimit();               // Prompts user to set the buffer size limit and returns
+
+void init_BufferQueue(BufferQueue* inQ, int bufferSize);       // Create and Initialize Queue
 
 bool isEmpty(BufferQueue* inQ);         // Check if Queue is Empty, returns True if Queue is empty or False otherwise.
 bool isFull(BufferQueue* inQ);          // Check if Queue is Full, returns True if Queue is full, or False otherwise.
 
 bool enqueue(BufferQueue* inQ, Element inElement);              // Enqueue, returns true if Enqueue is success.
-Element dequeue(BufferQueue* inQ);                              // Dequeue (Request), returns dequeue-ed (Request)
+bool dequeue(BufferQueue* inQ, Element* deqElement);            // Dequeue (Request), returns dequeue-ed (Request)
 
 Element peekFirst(BufferQueue* inQ);    // Returns a copy of the First Element in Queue
 Element peekLast(BufferQueue* inQ);     // Returns a copy of the Last Element in Queue
