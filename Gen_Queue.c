@@ -21,12 +21,22 @@ int userSetBufferLimit()
     bool valid = false;
     int userInput = 0;
 
-
-    printf("\nPlease enter the size limit for queue :  \n");
+    printf("%s Please enter the size limit for queue :", SPACER);
     scanf("%d", &userInput);
 
-    printf("USER INPUT  %d \n", userInput);
-    return userInput;
+    if (userInput == 0)
+    {
+        printf("%s [Error]   Invalid input for :     Queue[ size_limit ] \n "
+               "\n  -> input should be a number > 0. (greater than zero)"
+               "\n  -> Size limit is maximum number of elements queue can hold.\n", SPACER);
+        fflush(stdin);
+
+        userSetBufferLimit();
+    }
+    else
+    {
+        return userInput;
+    }
 
 }
 
@@ -42,7 +52,7 @@ void init_BufferQueue(BufferQueue* inQ, int bufferSize)
     }
     else
     {
-        printf("Q is empty! Not initialized. \n");
+        printf("[Warning] Set limit is 0! Queue is not initialized. \n");
         inQ->initialized = false;
     }
 
@@ -99,22 +109,29 @@ bool enqueue(BufferQueue* inQ, Element inElement)
      */
     if(isFull(inQ))
     {
-        printf("[Overflow] Queue is Full!%*cQueue: [ %d / %d ]\n", 10, ' ', inQ->size,inQ->sizeLimit);
-        printf("%*cRequest not added to Queue.\n", 11,' ');
+        printf("\n%s [Overflow] Queue is Full!%*cQueue: [ %d / %d ]\n", SPACER, 20, ' ', inQ->size,inQ->sizeLimit);
+        printf("%*cElement not added to Queue.\n", 12,' ');
         printf(SPACER);
+
 
         return false;   //  Enqueue : Not success.
     }
     else if (isEmpty(inQ))
     {
-        //inQ->frontIdx =
         inQ->rearIdx = 0;           // Front = Rear = 0 (index = 0)
         *(inQ->Elements + inQ->rearIdx) = inElement; // Dereference Rear THEN Store Element.
         inQ->size++;                                // Queue size increment by 1
 
         //printLoadSuccess(inQ, inElement);           // Prints success message.
-        printf("ADDED! Em\n");
-        printf("DAAT : %s \n", inElement.Data);
+       // printMessage("Enqueue Success", &inElement);
+       /*
+        int xx = (int) (((Boom*)inElement.Data)->x);
+        int yy = (int) (((Boom*)inElement.Data)->y);
+
+       printf("\n Your variable --> [x,y]    ---- (String) \n"
+                      "                  [ %d , %d ] ----  %s \n", xx, yy, (char*)((Boom*)inElement.Data)->det);
+
+       */
         return true;    // Enqueue : Success.
     }
     else
@@ -125,8 +142,7 @@ bool enqueue(BufferQueue* inQ, Element inElement)
         inQ->size++;                                    // Queue size increment by 1
 
         //printLoadSuccess(inQ, inElement);               // Prints success message.
-        printf("ADDED! X\n");
-        printf("DAAT : %s \n", inElement.Data);
+        printMessage("Enqueue Success", &inElement);
         return true;    // Enqueue : Success.
     }
 }
@@ -135,10 +151,11 @@ bool dequeue(BufferQueue* inQ, Element* deqElement)
 {
     if(isEmpty(inQ))
     {
-        printf(SPACER);
+        printf("\n %s", SPACER);
         printf("[Underflow] Queue is Empty!          Queue: [ %d / %d ]"
                "\n            Nothing in Queue to remove.\n",inQ->size,inQ->sizeLimit);
         printf(SPACER);
+
         return false;
     }
     else
@@ -164,12 +181,15 @@ bool dequeue(BufferQueue* inQ, Element* deqElement)
         }
 
         inQ->size--;        // size of Queue is decreased by 1
-        printf("DEQ \n Taken : %d       Size: %d\n",deqElement->Data, inQ->size);
 
-        // printUnloadSuccess(inQ, dequed, inArg);
         // printAll(inQ);
         return true;
     }
+}
+
+void printMessage(char* operation, Element* inElement)
+{
+    printf("\n%s[%s]\n %*c Element - %s     Index : %d", SPACER, operation, 10, ' ', inElement->Data, inElement->index);
 }
 
 void printAll(BufferQueue* inQ)
@@ -178,16 +198,36 @@ void printAll(BufferQueue* inQ)
 
     if(inQ->size != 0)
     {
+        printf("\n%s Displaying current Queue : \n\n",SPACER);
         for (i = 0; i < (inQ->size); i++)
         {
             char* str = ((inQ->Elements + i)->Data);
             int ix = ((inQ->Elements + i)->index);
-            printf("#(%d) Element : \" %s \" at index : %d \n", i, str, ix);
+
+            printf("     #(%d) Element : \" %s \"      at index : %d    \n", i, str, ix);
+
+            /*
+            If need to display output vertically aligned.
+
+            if(i > 9 && i < 100)
+            {
+                printf("    #(%d) Element : \" %s \"      at index : %d \n", i, str, ix);
+            }
+            else if (i > 99)
+            {
+                printf("   #(%d) Element : \" %s \"      at index : %d \n", i, str, ix);
+            }
+            else
+            {
+                printf("     #(%d) Element : \" %s \"      at index : %d \n", i, str, ix);
+            }
+
+            */
         }
     }
     else
     {
-        printf("Q empty! \n");
+        printf("\n%s Q is empty!  Nothing to show.\n",SPACER);
     }
 
 }

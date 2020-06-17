@@ -3,6 +3,7 @@
 #include <stdlib.h>
 #include <string.h>
 
+
 int main()
 {
     BufferQueue testQ;      // Generic Queue with size Limit
@@ -12,24 +13,59 @@ int main()
 
     init_BufferQueue(&testQ, bufferSizeLimit);      // initialize bufferQueue
 
+
     if(testQ.initialized)
     {
         Element enQ, deQ;
+
+
+/*        Boom* xxxx;
+        xxxx->x = 2;
+        xxxx->y = 5;
+        xxxx->det = "Ello";
+
+        enQ.Data = (void*)xxxx;
+        enqueue(&testQ, enQ);
+*/
         int i = 0;
 
-        for (i = 0; i < 12; i++)
+        for (i = 0; i < 10; i++)
         {
             char* str = "String";
 
             enQ.index = i;
             enQ.Data = str;
-            
+
+            enqueue(&testQ, enQ);
+        }
+
+        for(i=0; i < 10; i++)
+        {
+            char* str = "More Strings";
+
+            enQ.index = i;
+            enQ.Data = str;
+
             enqueue(&testQ, enQ);
         }
 
         printAll(&testQ);
 
-        printf("END");
+        /* deq */
+/*
+        dequeue(&testQ, &deQ);
+        printf("DEqued Det : %s \n", deQ.Data);
+
+        int siz = testQ.size;
+        for(i = 0; i < siz; i++)
+        {
+            dequeue(&testQ, &deQ);
+        }
+
+        printAll(&testQ);
+*/
+
+        printf("\n%s %*c End of the Program \n%s", SPACER, 20, ' ', SPACER);
     }
 
     return 0;

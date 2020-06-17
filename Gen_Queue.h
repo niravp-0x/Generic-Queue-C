@@ -16,8 +16,21 @@
 #include<stdbool.h>
 #define SPACER "----------------------------------------------------------------\n"
 
+/*
+ Can be implemented if need to
+
 #define MIN_BUFFER 8            // Minimum buffer size limit
 #define MAX_BUFFER 264          // Maximum buffer size limit
+
+
+
+typedef struct
+{
+    int x;
+    int y;
+    char* det;
+}Boom;
+*/
 
 typedef struct
 {
@@ -48,9 +61,12 @@ bool isFull(BufferQueue* inQ);          // Check if Queue is Full, returns True 
 bool enqueue(BufferQueue* inQ, Element inElement);              // Enqueue, returns true if Enqueue is success.
 bool dequeue(BufferQueue* inQ, Element* deqElement);            // Dequeue (Request), returns dequeue-ed (Request)
 
+void printMessage(char* operation, Element* inElement);
+
 Element peekFirst(BufferQueue* inQ);    // Returns a copy of the First Element in Queue
 Element peekLast(BufferQueue* inQ);     // Returns a copy of the Last Element in Queue
 
 void printAll(BufferQueue* inQ);
 
 #endif //GENERIC_QUEUE_GEN_QUEUE_H
+
