@@ -23,14 +23,16 @@
 #define MAX_BUFFER 264          // Maximum buffer size limit
 
 
+*/
 
 typedef struct
 {
-    int x;
-    int y;
-    char* det;
-}Boom;
-*/
+    int xPos;
+    int yPos;
+    char* detail;
+
+}TestStruct;
+
 
 typedef struct
 {
@@ -49,7 +51,6 @@ typedef  struct
 
 }BufferQueue;
 
-void freeMe(BufferQueue* inQ);
 
 int userSetBufferLimit();               // Prompts user to set the buffer size limit and returns
 
@@ -61,11 +62,12 @@ bool isFull(BufferQueue* inQ);          // Check if Queue is Full, returns True 
 bool enqueue(BufferQueue* inQ, Element inElement);              // Enqueue, returns true if Enqueue is success.
 bool dequeue(BufferQueue* inQ, Element* deqElement);            // Dequeue (Request), returns dequeue-ed (Request)
 
-void printMessage(char* operation, Element* inElement);
 
 Element peekFirst(BufferQueue* inQ);    // Returns a copy of the First Element in Queue
 Element peekLast(BufferQueue* inQ);     // Returns a copy of the Last Element in Queue
 
+void printInts(BufferQueue* inQ);
+void printMessage(Element* inElement);
 void printAll(BufferQueue* inQ);
 
 #endif //GENERIC_QUEUE_GEN_QUEUE_H

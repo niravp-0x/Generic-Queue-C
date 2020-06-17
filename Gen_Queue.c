@@ -58,20 +58,6 @@ void init_BufferQueue(BufferQueue* inQ, int bufferSize)
 
 }
 
-void freeMe(BufferQueue* inQ)
-{
-    int i;
-    int sizeLim = inQ->size;
-    printf("Before Free : %d \n", inQ->Elements->Data);
-    printf("Before Free : %d \n", ((inQ->Elements)+1)->Data);
- //   free(inQ->Elements);
-//    for(i=0; i<sizeLim; i++)
-//    {
-        free(((inQ->Elements)+1));
- //   }
-
-    printf("Before Free : %d \n", ((inQ->Elements)+1)->Data);
-}
 
 bool isEmpty(BufferQueue* inQ)
 {
@@ -123,13 +109,11 @@ bool enqueue(BufferQueue* inQ, Element inElement)
         inQ->size++;                                // Queue size increment by 1
 
         //printLoadSuccess(inQ, inElement);           // Prints success message.
-        printMessage("Enqueue Success", &inElement);
-       /*
-        int xx = (int) (((Boom*)inElement.Data)->x);
-        int yy = (int) (((Boom*)inElement.Data)->y);
 
-       printf("\n Your variable --> [x,y]    ---- (String) \n"
-                      "                  [ %d , %d ] ----  %s \n", xx, yy, (char*)((Boom*)inElement.Data)->det);
+      //  printMessage("Enqueue Success", &inElement);
+       /*
+
+
 
        */
         return true;    // Enqueue : Success.
@@ -142,7 +126,7 @@ bool enqueue(BufferQueue* inQ, Element inElement)
         inQ->size++;                                    // Queue size increment by 1
 
         //printLoadSuccess(inQ, inElement);               // Prints success message.
-        printMessage("Enqueue Success", &inElement);
+       // printMessage("Enqueue Success", &inElement);
         return true;    // Enqueue : Success.
     }
 }
@@ -187,18 +171,38 @@ bool dequeue(BufferQueue* inQ, Element* deqElement)
     }
 }
 
-void printMessage(char* operation, Element* inElement)
+void printMessage(Element* inElement)
 {
-    printf("\n%s[%s]\n %*c Element - %s     Index : %d", SPACER, operation, 10, ' ', inElement->Data, inElement->index);
+    int xx = (int) (((TestStruct*)inElement->Data)->xPos);
+    int yy = (int) (((TestStruct*)inElement->Data)->yPos);
+    char* strVal = (char*)((TestStruct*)inElement->Data)->detail;
+    printf("%s Displaying (TestStruct) current Queue : \n", SPACER);
+    printf("\n Your variable values :  \n"
+           "    {\n          xPos (int)    : %d \n"
+           "          yPos (int)    : %d \n"
+           "        detail (String) : %s \n"
+           "    }\n", xx, yy, strVal);
+}
+
+void printInts(BufferQueue* inQ)
+{
+    int i;
+    printf("\n%s Displaying (Int) current Queue : \n\n",SPACER);
+    for (i = 0; i < (inQ->size); i++)
+    {
+        int data = ((inQ->Elements + i)->Data);
+        printf("     #(%d) Element :  %d  \n", i, data);
+    }
 }
 
 void printAll(BufferQueue* inQ)
 {
     int i;
 
+    printf("\n%s Displaying (String) current Queue : \n",SPACER);
+
     if(inQ->size != 0)
     {
-        printf("\n%s Displaying current Queue : \n\n",SPACER);
         for (i = 0; i < (inQ->size); i++)
         {
             char* str = ((inQ->Elements + i)->Data);
@@ -207,6 +211,7 @@ void printAll(BufferQueue* inQ)
             printf("     #(%d) Element : \" %s \"      at index : %d    \n", i, str, ix);
 
             /*
+
             If need to display output vertically aligned.
 
             if(i > 9 && i < 100)
@@ -227,7 +232,7 @@ void printAll(BufferQueue* inQ)
     }
     else
     {
-        printf("\n%s Q is empty!  Nothing to show.\n",SPACER);
+        printf("\n     Q is empty!  Nothing to show.\n");
     }
 
 }

@@ -14,7 +14,8 @@
     <list default="true" id="62494e54-3caa-4a7d-8181-97c50487f7e6" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Gen_Queue.c" beforeDir="false" afterPath="$PROJECT_DIR$/Gen_Queue.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Generic_Queue_C.dir/C.includecache" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Generic_Queue_C.dir/C.includecache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Gen_Queue.h" beforeDir="false" afterPath="$PROJECT_DIR$/Gen_Queue.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Generic_Queue_C.dir/Gen_Queue.c.obj" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Generic_Queue_C.dir/Gen_Queue.c.obj" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Generic_Queue_C.dir/main.c.obj" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Generic_Queue_C.dir/main.c.obj" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Generic_Queue_C.dir/objects.a" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Generic_Queue_C.dir/objects.a" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/Generic_Queue_C.exe" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Generic_Queue_C.exe" afterDir="false" />
@@ -63,7 +64,8 @@
       <workItem from="1590849186265" duration="304000" />
       <workItem from="1590849679484" duration="3912000" />
       <workItem from="1590987835151" duration="2608000" />
-      <workItem from="1592371602399" duration="17793000" />
+      <workItem from="1592371602399" duration="18457000" />
+      <workItem from="1592400749561" duration="6587000" />
     </task>
     <servers />
   </component>
@@ -71,49 +73,49 @@
     <option name="version" value="1" />
   </component>
   <component name="WindowStateProjectService">
-    <state width="754" height="912" key="GridCell.Tab.0.bottom" timestamp="1592389908183">
+    <state width="890" height="912" key="GridCell.Tab.0.bottom" timestamp="1592407299392">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="754" height="912" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1592389908183" />
-    <state width="754" height="912" key="GridCell.Tab.0.center" timestamp="1592389908183">
+    <state width="890" height="912" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1592407299392" />
+    <state width="890" height="912" key="GridCell.Tab.0.center" timestamp="1592407299392">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="754" height="912" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1592389908183" />
-    <state width="754" height="912" key="GridCell.Tab.0.left" timestamp="1592389908183">
+    <state width="890" height="912" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1592407299392" />
+    <state width="890" height="912" key="GridCell.Tab.0.left" timestamp="1592407299392">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="754" height="912" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1592389908183" />
-    <state width="754" height="912" key="GridCell.Tab.0.right" timestamp="1592389908183">
+    <state width="890" height="912" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1592407299392" />
+    <state width="890" height="912" key="GridCell.Tab.0.right" timestamp="1592407299392">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="754" height="912" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1592389908183" />
-    <state width="1877" height="348" key="GridCell.Tab.1.bottom" timestamp="1592378458663">
+    <state width="890" height="912" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1592407299392" />
+    <state width="1877" height="348" key="GridCell.Tab.1.bottom" timestamp="1592390911643">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="348" key="GridCell.Tab.1.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1592378458663" />
-    <state width="1877" height="348" key="GridCell.Tab.1.center" timestamp="1592378458663">
+    <state width="1877" height="348" key="GridCell.Tab.1.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1592390911643" />
+    <state width="1877" height="348" key="GridCell.Tab.1.center" timestamp="1592390911643">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="348" key="GridCell.Tab.1.center/0.0.1920.1040@0.0.1920.1040" timestamp="1592378458663" />
-    <state width="1877" height="348" key="GridCell.Tab.1.left" timestamp="1592378458663">
+    <state width="1877" height="348" key="GridCell.Tab.1.center/0.0.1920.1040@0.0.1920.1040" timestamp="1592390911643" />
+    <state width="1877" height="348" key="GridCell.Tab.1.left" timestamp="1592390911643">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="348" key="GridCell.Tab.1.left/0.0.1920.1040@0.0.1920.1040" timestamp="1592378458663" />
-    <state width="1877" height="348" key="GridCell.Tab.1.right" timestamp="1592378458663">
+    <state width="1877" height="348" key="GridCell.Tab.1.left/0.0.1920.1040@0.0.1920.1040" timestamp="1592390911643" />
+    <state width="1877" height="348" key="GridCell.Tab.1.right" timestamp="1592390911643">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="348" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1592378458663" />
-    <state x="1136" y="344" key="com.intellij.ide.util.TipDialog" timestamp="1592371614478">
+    <state width="1877" height="348" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1592390911643" />
+    <state x="1136" y="344" key="com.intellij.ide.util.TipDialog" timestamp="1592400767000">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="1136" y="344" key="com.intellij.ide.util.TipDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1592371614478" />
+    <state x="1136" y="344" key="com.intellij.ide.util.TipDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1592400767000" />
     <state x="616" y="240" key="run.anything.popup" timestamp="1592372343436">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="616" y="240" key="run.anything.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1592372343436" />
-    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1592386157321">
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1592402880273">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1592386157321" />
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1592402880273" />
   </component>
 </project>
